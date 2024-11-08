@@ -1,0 +1,35 @@
+<main class="d-flex flex-column gap-4 justify-content-center align-items-center">
+
+  <section class="c-lead w-100 shadow-sm bg-white" *ngFor="let lead of leads$ | async">
+    <div class="c-lead__header d-flex gap-4 align-items-center">
+      <div class="c-lead__picture">
+        {{ lead.person.name[0] }}
+      </div>
+      <div class="c-lead__person d-flex flex-column gap-1">
+        <p class="c-lead__name m-0">{{ lead.person.name }}</p>
+        <p class="c-lead__created-at m-0 ">{{ lead.createdAt | date: 'MMMM dd @ HH:mm' }}</p>
+      </div>
+    </div>
+
+    <div class="c-lead__info d-flex flex-row gap-1">
+      <fa-icon [icon]="faLocationPin" class="c-lead__icon"></fa-icon>
+      <p class="c-lead__address mb-0 me-2">{{ lead.person.address }}</p>
+      <fa-icon [icon]="faBriefcase" class="c-lead__icon"></fa-icon>
+      <p class="c-lead__job-title mb-0 me-2">{{ lead.job.title }}</p>
+      <p class="c-lead__job-id m-0">Lead ID: {{ lead.id }}</p>
+    </div>
+
+    <div class="c-lead__description">
+      <p class="m-0">{{ lead.job.description }}</p>
+    </div>
+
+    <div class="c-lead__actions d-flex gap-2">
+      <button class="c-lead__button c-lead__button--accept" (click)="acceptLead(lead)">Accept</button>
+      <button class="c-lead__button" (click)="declineLead(lead)">Decline</button>
+
+      <p>
+        <span class="fw-bold">$ {{ lead.job.salary }}</span> Lead Invitation
+      </p>
+    </div>
+  </section>
+</main>

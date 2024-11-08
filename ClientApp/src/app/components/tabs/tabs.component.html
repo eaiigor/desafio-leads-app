@@ -1,0 +1,13 @@
+<section class="c-tabs d-flex shadow-sm align-items-center justify-content-center">
+  <div class="c-tabs__tab" *ngFor="let tab of tabs; index as i"
+       (click)="select(i)"
+       [class.c-tabs__tab--selected]="isSelected(i)"
+  >
+    {{ tab.title }}
+  </div>
+</section>
+
+<div [ngSwitch]="selected" class="mt-4">
+  <app-invited *ngSwitchCase="0"></app-invited>
+  <app-accepted *ngSwitchCase="1"></app-accepted>
+</div>

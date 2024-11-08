@@ -1,0 +1,22 @@
+.c-tabs {
+  background-color: #fff;
+  border-radius: 0.25rem;
+
+  &__tab {
+    width: 100%;
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+
+    &:first-child {
+      border-right: 1px solid #e9ecef;
+    }
+
+    &--selected {
+      border-bottom: 2px solid #ff7900;
+    }
+  }
+}
